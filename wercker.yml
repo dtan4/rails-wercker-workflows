@@ -2,12 +2,15 @@ box:
   id: quay.io/dtan4/rails-test-base
   tag: latest
   registry: quay.io
+
 services:
   - postgres:9.4
 
 build:
   steps:
-    - bundle-install
+    - script:
+        name: Show global envs
+        code: env
 
 rspec-models:
   steps:
