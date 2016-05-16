@@ -1,0 +1,49 @@
+box:
+  id: quay.io/dtan4/rails-test-base
+  tag: latest
+  registry: quay.io
+services:
+  - postgres:9.4
+
+build:
+  steps:
+    - bundle-install
+
+rspec-models:
+  steps:
+    - bundle-install
+    - script:
+        name: Set POSTGRES_USER
+        code: export POSTGRES_USER=postgres
+    - script:
+        name: Prepare database
+        code: bundle exec rake db:test:prepare
+    - script:
+        name: Run RSpec
+        code: bundle exec rspec spec/models
+
+rspec-controllers:
+  steps:
+    - bundle-install
+    - script:
+        name: Set POSTGRES_USER
+        code: export POSTGRES_USER=postgres
+    - script:
+        name: Prepare database
+        code: bundle exec rake db:test:prepare
+    - script:
+        name: Run RSpec
+        code: bundle exec rspec spec/controllers
+
+rspec-features:
+  steps:
+    - bundle-install
+    - script:
+        name: Set POSTGRES_USER
+        code: export POSTGRES_USER=postgres
+    - script:
+        name: Prepare database
+        code: bundle exec rake db:test:prepare
+    - script:
+        name: Run RSpec
+        code: bundle exec rspec spec/features

@@ -1,0 +1,17 @@
+.git
+.bundle
+db/*.sqlite3
+db/*.sqlite3-journal
+log/*.log
+tmp
+TODO
+coverage
+
+_builds
+_cache
+_projects
+_steps
+
+LICENSE
+Guardfile
+README.md
