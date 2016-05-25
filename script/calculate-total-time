@@ -2,7 +2,7 @@
 
 require "time"
 
-main_pipeline_started_path = File.join(ENV["WERCKER_OUTPUT_DIR"], "/main_pipeline_started")
+main_pipeline_started_path = File.join(Dir.pwd, "main_pipeline_started")
 
 unless File.exist?(main_pipeline_started_path)
   puts "#{main_pipeline_started_path} does not exist."
