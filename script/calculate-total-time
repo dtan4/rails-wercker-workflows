@@ -10,7 +10,7 @@ unless File.exist?(main_pipeline_started_path)
 end
 
 main_pipeline_started = File.read(main_pipeline_started_path).strip.to_i
-diff = Time.now - main_pipeline_started
+diff = Time.now - Time.at(main_pipeline_started)
 minutes = (diff / 60).round
 seconds = (diff % 60).round
 
