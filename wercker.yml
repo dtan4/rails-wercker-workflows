@@ -17,10 +17,10 @@ build:
           ls -al $WERCKER_ROOT
           echo "===================="
           ls -al $WERCKER_OUTPUT_DIR
-    - script:
-        name: Save start time
-        code: |
-          echo $WERCKER_MAIN_PIPELINE_STARTED > $WERCKER_OUTPUT_DIR/main_pipeline_started
+    # - script:
+    #     name: Save start time
+    #     code: |
+    #       echo $WERCKER_MAIN_PIPELINE_STARTED > $WERCKER_OUTPUT_DIR/main_pipeline_started
 
 rspec-models:
   steps:
