@@ -14,6 +14,9 @@ build:
 
 rspec-models:
   steps:
+    - script:
+        name: Show global envs
+        code: env
     - bundle-install
     - script:
         name: Set POSTGRES_USER
@@ -27,6 +30,9 @@ rspec-models:
 
 rspec-controllers:
   steps:
+    - script:
+        name: Show global envs
+        code: env
     - bundle-install
     - script:
         name: Set POSTGRES_USER
@@ -40,6 +46,9 @@ rspec-controllers:
 
 rspec-features:
   steps:
+    - script:
+        name: Show global envs
+        code: env
     - bundle-install
     - script:
         name: Set POSTGRES_USER
