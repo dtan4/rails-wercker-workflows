@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require "time"
+
+main_pipeline_started_path = File.join(ENV["WERCKER_OUTPUT_DIR"], "/main_pipeline_started")
+
+unless File.exist?(main_pipeline_started_path)
+  puts "#{main_pipeline_started_path} does not exist."
+  exit 0
+end
+
+main_pipeline_started = File.read(main_pipeline_started_path).strip.to_i
+diff = Time.now - main_pipeline_started
+minutes = (diff / 60).round
+seconds = (diff % 60).round
+
+puts "Total time: #{minutes} minutes #{seconds} seconds."
+exit 0
