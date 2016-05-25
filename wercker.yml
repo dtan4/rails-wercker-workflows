@@ -33,6 +33,12 @@ rspec-models:
         name: Show global envs
         code: env
     - script:
+        name: cp
+        code: |
+          rm -rf $WERCKER_CACHE_DIR/bundle-install
+          cp -r vendor/bundle $WERCKER_CACHE_DIR/bundle-install
+    - bundle-install
+    - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
     - script:
@@ -57,6 +63,12 @@ rspec-controllers:
         name: Show global envs
         code: env
     - script:
+        name: cp
+        code: |
+          rm -rf $WERCKER_CACHE_DIR/bundle-install
+          cp -r vendor/bundle $WERCKER_CACHE_DIR/bundle-install
+    - bundle-install
+    - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
     - script:
@@ -80,6 +92,12 @@ rspec-features:
     - script:
         name: Show global envs
         code: env
+    - script:
+        name: cp
+        code: |
+          rm -rf $WERCKER_CACHE_DIR/bundle-install
+          cp -r vendor/bundle $WERCKER_CACHE_DIR/bundle-install
+    - bundle-install
     - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
