@@ -12,11 +12,9 @@ build:
         name: Show global envs
         code: env
     - script:
-        name: Show dir
+        name: Run bundle install
         code: |
-          ls -al $WERCKER_ROOT
-          echo "===================="
-          ls -al $WERCKER_OUTPUT_DIR
+          bundle install -j4 --path=vendor/bundle
     - script:
         name: Save start time
         code: |
@@ -34,16 +32,9 @@ rspec-models:
     - script:
         name: Show global envs
         code: env
-    - bundle-install
     - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
-    - script:
-        name: Show dir
-        code: |
-          ls -al $WERCKER_ROOT
-          echo "===================="
-          ls -al $WERCKER_OUTPUT_DIR
     - script:
         name: Prepare database
         code: bundle exec rake db:test:prepare
@@ -65,7 +56,6 @@ rspec-controllers:
     - script:
         name: Show global envs
         code: env
-    - bundle-install
     - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
@@ -90,7 +80,6 @@ rspec-features:
     - script:
         name: Show global envs
         code: env
-    - bundle-install
     - script:
         name: Set POSTGRES_USER
         code: export POSTGRES_USER=postgres
