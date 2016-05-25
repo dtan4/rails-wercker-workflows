@@ -14,10 +14,16 @@ build:
     - script:
         name: Save start time
         code: |
+          ls -al $WERCKER_OUTPUT_DIR
           echo $WERCKER_MAIN_PIPELINE_STARTED > $WERCKER_OUTPUT_DIR/main_pipeline_started
+          ls -al $WERCKER_OUTPUT_DIR
 
 rspec-models:
   steps:
+    - script:
+        name: Show output dir
+        code: |
+          ls -al $WERCKER_OUTPUT_DIR
     - script:
         name: Show global envs
         code: env
@@ -38,6 +44,10 @@ rspec-models:
 rspec-controllers:
   steps:
     - script:
+        name: Show output dir
+        code: |
+          ls -al $WERCKER_OUTPUT_DIR
+    - script:
         name: Show global envs
         code: env
     - bundle-install
@@ -56,6 +66,10 @@ rspec-controllers:
 
 rspec-features:
   steps:
+    - script:
+        name: Show output dir
+        code: |
+          ls -al $WERCKER_OUTPUT_DIR
     - script:
         name: Show global envs
         code: env
