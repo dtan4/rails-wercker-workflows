@@ -2,6 +2,8 @@ require "spec_helper"
 
 feature "About BigCo modal" do
   scenario "toggles display of the modal about display", js: true do
+    fail
+
     visit root_path
 
     expect(page).to_not have_content "About BigCo"
